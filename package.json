@@ -1,5 +1,5 @@
 {
-  "name": "Helena",
+  "name": "Mongoose CRUD Tools",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,8 +8,7 @@
   "dependencies": {
     "debug": "~2.1.1",
     "jade": "~1.9.0",
-    "mongoose": "^4.0.0",
-    "morgan": "~1.5.1",
+    "mongoose": "~3.8.23",
     "underscore": "^1.8.2",
     "underscore.string": "~3.0.3"
   },
@@ -19,5 +18,15 @@
     "grunt-contrib-watch": "*",
     "grunt-contrib-uglify": "*",
     "uglify": "~0.1.1"
-  }
+  },
+  "keywords": [
+    "mongoose",
+    "CRUD"
+  ],
+  "author": "Jordan Smilovic",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsmilovic/MongooseModelMakerBuildingBlocks.git"
+  },
+  "version": "0.1"
 }
