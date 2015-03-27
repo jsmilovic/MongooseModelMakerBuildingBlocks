@@ -3,7 +3,8 @@
   "version": "0.1.3",
   "private": false,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "mocha"
   },
   "dependencies": {
     "debug": "~2.1.1",
@@ -17,7 +18,8 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-watch": "*",
     "grunt-contrib-uglify": "*",
-    "uglify": "~0.1.1"
+    "uglify": "~0.1.1",
+    "should": "*"
   },
   "keywords": [
     "mongoose",
