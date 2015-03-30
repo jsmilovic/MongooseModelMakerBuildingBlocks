@@ -7,21 +7,42 @@ tools = new Tools({modelsDir: __dirname + '/data/models/', modelTemplatesDir: __
 
 testOpts = {
   schemas: {
-    simple: "{ \
-      name: String \
-    }",
-    complex: "{ \
-      title:  String, \
-      author: String, \
-      body:   String, \
-      comments: [{ body: String, date: Date }], \
-      date: { type: Date, default: Date.now }, \
-      hidden: Boolean, \
-      meta: { \
-        votes: Number, \
-        favs:  Number \
-      } \
-    }",
+    simple: {
+      default: "{ \
+          name: String \
+        }",
+      updated: "{ \
+          name: String, \
+          updated: Boolean \
+        }"
+    },
+    complex: {
+      default: "{ \
+          title:  String, \
+          author: String, \
+          body:   String, \
+          comments: [{ body: String, date: Date }], \
+          date: { type: Date, default: Date.now }, \
+          hidden: Boolean, \
+          meta: { \
+            votes: Number, \
+            favs:  Number \
+          } \
+        }",
+      updated: "{ \
+          title:  String, \
+          author: String, \
+          body:   String, \
+          comments: [{ body: String, date: Date }], \
+          revisions: [{ body: String, date: Date }], \
+          date: { type: Date, default: Date.now }, \
+          hidden: Boolean, \
+          meta: { \
+            votes: Number, \
+            favs:  Number \
+          } \
+        }"
+    },
     invalid:  "{ \
       title:  'String', \
       author: Strings \
