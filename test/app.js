@@ -1,8 +1,16 @@
 describe('tools', function () {
+  before(function() {
+    mongoose.connect('mongodb://localhost/test');
+  });
+
   it('should exist', function (done) {
     tools.should.be.ok;
     tools.should.not.be.type('undefined');
     done();
+  });
+
+  it('should be able to create a model', function(done) {
+    tools.createModel('test', testOpts.schema, done);
   });
 
 
