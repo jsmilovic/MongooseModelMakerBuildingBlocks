@@ -9,21 +9,11 @@ describe('tools', function () {
     done();
   });
 
-  it('should be able to create a model', function(done) {
-    tools.createModel('test', testOpts.schema, done);
+  it('should be able to create a simple model', function(done) {
+    tools.createModel('SimpleTest', testOpts.schemas.simple, done);
   });
 
-
-
-  /*it('should be able to create a model', function(done) {
-    app.createModel('Test Model', res, done);
+  it('should be able to create a model using each of the Mongoose schema types', function(done) {
+    tools.createModel('ComplexTest', testOpts.schemas.complex, done);
   });
-
-  it('should be listening at localhost:3000', function (done) {
-    var headers = defaultHttpOptions('/');
-    http.get(headers, function (res) {
-      res.statusCode.should.equal(200);
-      done();
-    });
-  });*/
 });
