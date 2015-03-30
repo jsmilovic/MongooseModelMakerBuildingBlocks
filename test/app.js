@@ -1,7 +1,7 @@
 describe('tools', function () {
-  before(function() {
+  /*before(function() {
     mongoose.connect('mongodb://localhost/test');
-  });
+  });*/
 
   it('should exist', function (done) {
     tools.should.be.ok;

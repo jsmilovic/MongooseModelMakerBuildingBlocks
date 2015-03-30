@@ -12,16 +12,16 @@ testOpts = {
       name: String                                  \
     }",
     complex: "{                                     \
-        title:  String,                             \
-        author: String,                             \
-        body:   String,                             \
-        comments: [{ body: String, date: Date }],   \
-        date: { type: Date, default: Date.now },    \
-        hidden: Boolean,                            \
-        meta: {                                     \
-          votes: Number,                            \
-          favs:  Number                             \
-        }                                           \
-      }"
+      title:  String,                               \
+      author: String,                               \
+      body:   String,                               \
+      comments: [{ body: String, date: Date }],     \
+      date: { type: Date, default: Date.now },      \
+      hidden: Boolean,                              \
+      meta: {                                       \
+        votes: Number,                              \
+        favs:  Number                               \
+      }                                             \
+    }"
   }
 };
