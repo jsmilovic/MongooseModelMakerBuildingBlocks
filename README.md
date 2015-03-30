@@ -9,6 +9,7 @@ There is an example project coming soon using a REST API on top of this, but it 
 Initialization is as follows:
 ```
 var Helper = require ('mongoose-crud-tools');
+var __base == __dirname;
 var helper = new Helper({baseDir: __base, modelsDir: __base + 'models/', modelTemplatesDir: __base + 'views/'});
 ```
 Where
