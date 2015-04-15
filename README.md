@@ -16,6 +16,7 @@ Initialization is as follows:
 var Helper = require ('mongoose-crud-tools');
 var helper = new Helper({modelsDir: __base + 'models/', modelTemplatesDir: __base + 'views/'});
 ```
+
 Where
 modelsDir is where you want your outputted models to end up at.
 modelTemplatesDir is a folder containing your templates for making models and schemas. This is optional.  Please see the views folder for how you can make your own model templates
