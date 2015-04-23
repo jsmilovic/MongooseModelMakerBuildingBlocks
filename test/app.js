@@ -25,14 +25,6 @@ describe('MongooseModelMaker', function () {
     tools.createModel('LongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTestLongNameTest', testOpts.schemas.simple.default, done);
   });
 
-  it('should throw an error on being given an invalid schema', function(done) {
-    try {
-      tools.createModel('InvalidTest', testOpts.schemas.invalid, done);
-    } catch(e) {
-      done();
-    }
-  });
-
   // ====================================
   //              Retrieval
   // ====================================
@@ -64,11 +56,11 @@ describe('MongooseModelMaker', function () {
   // ====================================
 
   it('should be able to update a simple model', function(done) {
-    tools.updateSchema('SimpleTest', testOpts.schemas.simple.updated, done);
+    tools.createSchema('SimpleTest', testOpts.schemas.simple.updated, done);
   });
 
   it('should be able to update a complex model', function(done) {
-    tools.updateSchema('ComplexTest', testOpts.schemas.complex.updated, done);
+    tools.createSchema('ComplexTest', testOpts.schemas.complex.updated, done);
   });
 
   // ====================================

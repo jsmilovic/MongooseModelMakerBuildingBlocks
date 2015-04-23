@@ -1,13 +1,12 @@
+| exports = module.exports = function(mongoose) {
 | var fs = require('fs');
-| var mongoose = require('mongoose');
 | var Schema = mongoose.Schema;
-| var schema = new Schema(require('./#{modelName}_Schema'))
+| var schema = new Schema(require('./#{modelName}_Schema')(mongoose))
 | schema.statics.slug = function(cb) {
 | return '#{modelNameSlug}'
 | }
-
 | schema.statics.displayName = function(cb) {
 | return '#{modelNameDisplayName}'
 | }
-
-| module.exports = mongoose.model('#{modelName}',schema);
+| return mongoose.model('#{modelName}',schema);
+| }

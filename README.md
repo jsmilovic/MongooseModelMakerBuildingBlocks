@@ -1,30 +1,49 @@
 ##Mongoose CRUD Helper
 
-The goal of this project is to help making Mongoose models easier, programatically.
+You make mongoose files by hand.  The goal of this project is to help making Mongoose models easier, programatically. Either via REST or a generator or some other method.
 
-Schema updates and new models should reflect immediately in your application, invalidating the required module is handled internally
-
-Schemas are json as such
-
-Key: Value
-e.g.
-
-date: { type: Date, default: Date.now }
-
-Initialization is as follows:
+person.js
 ```
-var Helper = require ('mongoose-crud-tools');
-var helper = new Helper({modelsDir: __base + 'models/', modelTemplatesDir: __base + 'views/'});
+exports = module.exports = function(mongoose) {
+  var fs = require('fs');
+  var Schema = mongoose.Schema;
+  var schema = new Schema(require('./Person_Schema')(mongoose))
+  schema.statics.slug = function(cb) {
+    return 'Person'
+  }
+  schema.statics.displayName = function(cb) {
+    return 'Person'
+  }
+  return mongoose.model('Person',schema);
+}
+
+```
+
+person_schema.js
+```
+exports = module.exports = function(mongoose) {
+  return {Name:String,Age:Number,birthDate:{ type: Date, default: Date.now }};
+}
+```
+
+You can create your own schema templates to override the default ones provided
+
+Library initialization is as follows:
+```
+  var Helper = require ('mongoose-crud-tools');
+  var helper = new Helper(mongoose, {modelsDir: __base + 'models/', modelTemplatesDir: __base + 'views/'});
 ```
 
 Where
+mongoose is your required mongoose var
 modelsDir is where you want your outputted models to end up at.
 modelTemplatesDir is a folder containing your templates for making models and schemas. This is optional.  Please see the views folder for how you can make your own model templates
+
 
 ####Create Model
 
 ```
-helper.createModel('sample', schema, callback);
+  helper.createModel('sample', schema, callback);
 ```
 
 where schema is your default schema.  Please use {} for default if you want an empty schema to start
@@ -35,17 +54,27 @@ where schema is your default schema.  Please use {} for default if you want an e
     helper.addToSchema(modelName, fields, function(err) {
 ```
 
-####Update Schema
+Schemas are json as such
 
-Requires the entire schema. Here is an example of receiving new schema pieces in a request body to add to your schema.
+Key: Value
+e.g.
+
+date: { type: Date, default: Date.now }
+
+
+####Create/Replace Schema
+
+Replaces the entire schema. Here is an example of receiving new schema pieces in a request body to replace your schema with.
 
 ```
-  var schema = require(helper.findModelSchemaFilePath(modelName));
+  var schema = {};
 
   for (var item in req.body) {
     schema[item] = req.body[item];
   }
-  helper.updateSchema(modelName, schema, callback)
+  helper.createSchema(modelName, schema, callback)
 ```
 
 There is an example project coming soon using a REST API on top of this, but it should work fine for a yeoman generator, or other applications.
+
+Schema updates and new models should reflect immediately in your application, invalidating the required module is handled internally

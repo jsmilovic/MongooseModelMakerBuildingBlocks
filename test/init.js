@@ -3,7 +3,7 @@ should = require('should');
 mongoose = require('mongoose');
 
 Tools = require(__dirname + '/../index.js');
-tools = new Tools({modelsDir: __dirname + '/data/models/', modelTemplatesDir: __dirname + '/../views/'});
+tools = new Tools(mongoose,{modelsDir: __dirname + '/data/models/', modelTemplatesDir: __dirname + '/../views/'});
 
 testOpts = {
   schemas: {
@@ -42,10 +42,6 @@ testOpts = {
             favs:  Number \
           } \
         }"
-    },
-    invalid:  "{ \
-      title:  'String', \
-      author: Strings \
-    }"
+    }
   }
 };
